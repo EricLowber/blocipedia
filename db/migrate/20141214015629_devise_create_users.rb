@@ -3,11 +3,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
     create_table(:users) do |t|
       
       #customizable
-      t.string :title
-      t.string :body
-      t.string :admin
-      t.string :paid
-      t.string :unpaid
+      t.string :name
+      t.string :role
+
       
       ## Database authenticatable
       t.string :email,              null: false, default: ""
