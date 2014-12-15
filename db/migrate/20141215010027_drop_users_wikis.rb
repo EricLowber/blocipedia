@@ -1,5 +1,5 @@
 class DropUsersWikis < ActiveRecord::Migration
-  def ch
-  drop_table :UsersWikis
+  def change
+
   end
 end
