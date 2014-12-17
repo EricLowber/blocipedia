@@ -1,3 +1,10 @@
-<h1>Wikis</h1>
-<h2><%= @wiki.title %></h2>
-<p><%= @wiki.body %></p>
+<div class="row">
+  <div class="col-md-4">
+    <h1>Wikis</h1>
+     <h2><%= @wiki.title %></h2>
+      <p><%= @wiki.body %></p>
+  </div>
+  <div class="col-md-8">
+    <%= link_to 'Edit', edit_wiki_path(@wiki), class: 'btn btn-success' %>
+  </div>
+</div>
