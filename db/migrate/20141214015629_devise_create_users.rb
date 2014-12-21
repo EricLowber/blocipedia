@@ -4,7 +4,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       
       #customizable
       t.string :name
-      t.string :role
+      t.string :role,               null: false, default: "member"
 
       
       ## Database authenticatable

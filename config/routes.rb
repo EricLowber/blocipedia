@@ -1,8 +1,15 @@
 Blocipedia::Application.routes.draw do
+  get "stripe/hook"
   devise_for :users  
 
   resources :wikis
-  
+
+  resources :charges
+
+
+  post 'stripehook' => 'stripe#hook'
+
+
   get 'about' => 'welcome#about'
   root to: 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.

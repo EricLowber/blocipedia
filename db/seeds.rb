@@ -24,8 +24,8 @@
   member = User.new(
     name:     Faker::Name.name,
     email:    Faker::Internet.email,
-    password: Faker::Lorem.characters(10)
-    # role:     'member'
+    password: Faker::Lorem.characters(10),
+    role:     'member'
    )
   member.skip_confirmation!
   member.save!

@@ -11,6 +11,7 @@ end
 
 group :development do
   gem 'sqlite3' 
+  gem 'pry'
 end
 
 # Use SCSS for stylesheets
@@ -52,6 +53,12 @@ gem 'devise'
 
 #add figaro for secure configuration.
 gem 'figaro', '1.0'
+
+#use Pundit for authorization
+gem 'pundit'
+
+#use Stripe for online payments
+gem 'stripe'
 
 
 # Use ActiveModel has_secure_password
