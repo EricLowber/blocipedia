@@ -19,6 +19,17 @@
  admin.skip_confirmation!
  admin.save!
 
+ #create fake user
+ lowber = User.new(
+  name:       'lowber',
+  email:      'lowber@example.com',
+  password:   'helloworld',
+  role:       'member'
+  )
+ lowber.skip_confirmation!
+ lowber.save!
+
+
  # Create Members
  10.times do 
   member = User.new(
