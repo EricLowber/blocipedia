@@ -1,4 +1,13 @@
 class Wiki < ActiveRecord::Base
-  has_many :user_wikis
-  has_many :users, through: :user_wikis
+  belongs_to :user
+  has_many :collaborations  
+  has_many :users, through: :collaborations
+  
+  def owner
+    user
+  end
+
+  def collaborator
+    users
+  end
 end

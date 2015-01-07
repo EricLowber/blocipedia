@@ -1,11 +1,28 @@
  require 'faker'
  
  # Create Wikis
+ # Create Users
+ 15.times do
+   user = User.new(
+     name:     Faker::Name.name,
+     email:    Faker::Internet.email,
+     password: "helloworld",
+     role: ['member', 'premium_member'].sample,   
+     # password: Faker::Lorem.characters(10)
+   )
+   user.skip_confirmation!
+   user.save!
+ end
+ users = User.all
+
+
  50.times do
    Wiki.create!(
+     user:   users.sample,
      title:  Faker::Lorem.sentence,
-     body:   Faker::Lorem.paragraph
+     body:   Faker::Lorem.paragraph     
    )
+
  end
  wikis = Wiki.all
  
@@ -30,42 +47,12 @@
  lowber.save!
 
 
- # Create Members
- 10.times do 
-  member = User.new(
-    name:     Faker::Name.name,
-    email:    Faker::Internet.email,
-    password: Faker::Lorem.characters(10),
-    role:     'member'
-   )
-  member.skip_confirmation!
-  member.save!
- end
 
- users = User.all
-
- # Create Premium Member
-  premium_member = User.new(
-    name:     'Premium Member',
-    email:    'premium@example.com',
-    password: 'helloworld',
-    role:     'premium_member'
-   )
-  premium_member.skip_confirmation!
-  premium_member.save!
- 
   
 
- #Create Collaborations
- 10.times do
-  collaboration = Collaboration.create!(
-    user: users.sample,
-    wiki: wikis.sample,
-   )
-  end
 
  puts "Seed finished"
  puts "#{Wiki.count} wikis created"
  puts "#{User.count} users created" 
- puts "#{Collaboration.count} collaborations created"
+
 

@@ -1,14 +1,14 @@
 Blocipedia::Application.routes.draw do
-  get "stripe/hook"
+
   devise_for :users  
 
-  resources :wikis
+  resources :wikis do
+    resources :collaborations, only: [:index]
+  end
 
   resources :charges
 
-
-  post 'stripehook' => 'stripe#hook'
-
+  get 'wikis/:id/update_collaborators', to: 'wikis#update_collaborators', as: 'update_collaborators'
 
   get 'about' => 'welcome#about'
   root to: 'welcome#index'

@@ -1,0 +1,41 @@
+<table class = "table">
+  <tr>
+    <td><b>Wiki Title</b><td>
+    <td><b>Owner</b></td>
+    <td><b>Created</b></td>
+  </tr>
+  <% @wikis.each do |wiki| %>
+  <tr>
+  <td><%= link_to wiki.title, wiki_path(wiki) %></td>
+  <td><%= wiki.owner %> </td>
+  <td></td>
+  <td></td>
+  <td><%= wiki.created_at.strftime("%m/%d/%y") %></td>
+  </tr>
+  <% end %>
+  </table>
+ </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

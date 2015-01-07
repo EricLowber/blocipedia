@@ -11,18 +11,26 @@
   <div class="col-md-8">
     <%= form_for @wiki do |f| %>
     <div class="form-group">
+      <br>
       <%= f.label :title %>
       <%= f.text_field :title, class: 'form-control', placeholder: 'Enter title' %>
     </div>
     <div class="form-group">
       <%= f.label :body %>
       <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: 'Enter body' %>
-    </div>
-    <div class="form-group">
+     <br>
       <%= f.submit "Save", class: 'btn btn-success' %>
+
+      <%= f.label :private, class: 'checkbox' do %>
+      <%= f.check_box :private %> Private wiki
+      <% end %> 
     </div>
-      <% end %>
+      <% if current_user.role != 'member' %>
+       <%= link_to 'Update Collaborators', update_collaborators_path(@wiki), class: 'btn btn-warning' %>
+       <% end %> 
     </div>
+  <% end %>
   </div>
+</div>
 
 

@@ -1,11 +1,27 @@
-<h1>List of Wikis</h1>
-
-<% @wikis.each do |wiki| %>
-<div class= "media">
-  <div class= "media-body">
-    <h4 class= "media-heading">
-      <%= link_to wiki.title, wiki_path(wiki.id) %>
-    </h4>
-  </div>
- </div>
-<% end %> 
+<div class="row">
+   <div class="col-md-12">
+     <table class="table">
+     <tr>
+       <td><b>Title</b></td>
+       <td><b>Private</b></td>
+       <td><b>Collaborators</b></td>
+     </tr>
+     <% unless @wikis.empty? %>
+       <% @wikis.each do |wiki| %>
+          <tr><td><%= link_to wiki.title, wiki_path(wiki) %></td>
+              <td><%= "yes" if wiki.private? %></td>
+              <td><%= wiki.users.pluck(:name).join(', ') %></td>
+              </tr> 
+          <% end %>
+        <% else %>
+           <tr>
+           <td></td>
+             <td>
+               <h2>Sorry no Wikis for you</h2>
+             </td>
+             <td></td>
+           </tr>
+         <% end %>
+     </table>
+    </div>
+   </div>
