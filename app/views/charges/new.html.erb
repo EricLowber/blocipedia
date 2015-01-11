@@ -1,5 +1,16 @@
-
-<h1>This is where you pay</h1>
+<% if current_user.role == 'premium_member' %>
+ <h1>You are currently a premium member</h1>
+<% else %>
+ <h1>Upgrade to a Premium membership for only $5.00!</h1>
+ <br>
+<h2>Benefits of Premium Membership:</h2>
+<p class= "text-info">
+  <ul>
+    <li>create private wikis</li>
+    <li>add or remove collaborators to your wikis</li>
+    <li>..um, that's about it. That's why it's only 5 bucks</li>
+  </ul>
+</p>
 <%= form_tag charges_path do %>
   <article>
     <label class="amount">
@@ -11,5 +22,5 @@
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="A month's subscription"
           data-amount="500"></script>
+ <% end %>
 <% end %>
-

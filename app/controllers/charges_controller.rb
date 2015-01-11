@@ -2,6 +2,7 @@ class ChargesController < ApplicationController
 layout "application"
  
   def new
+
   end
 
   def create

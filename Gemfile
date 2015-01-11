@@ -26,8 +26,6 @@ gem 'bootstrap-sass', '~> 3.1.1'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -38,7 +36,7 @@ gem 'faker'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
-
+gem 'epic-editor-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -59,6 +57,9 @@ gem 'pundit'
 
 #use Stripe for online payments
 gem 'stripe'
+
+#use Redcarpet for markdown
+gem 'redcarpet'
 
 
 # Use ActiveModel has_secure_password

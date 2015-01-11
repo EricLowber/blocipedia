@@ -1,14 +1,16 @@
 class WikisController < ApplicationController
   def index   
-
     user = current_user
       if params[:select]=="mywikis"
- 
+        @wikis = Wiki.visible_to(current_user)
+       
       else
         @wikis = policy_scope(Wiki)
-        render 'allwikis'
+     
+         render 'allwikis'       
+      end
     end
-  end
+
 
   def new
     @wiki =Wiki.new
@@ -46,6 +48,7 @@ class WikisController < ApplicationController
   def create
     @wiki = current_user.wikis.build(wiki_params)
     authorize @wiki
+    @wiki.user = current_user
     if @wiki.save
       flash[:notice] = "Wiki was saved."
       redirect_to @wiki

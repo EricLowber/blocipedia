@@ -1,4 +1,5 @@
-<div class="container">
+
+
  <div class="row">
   <div class="col-md-4">
     <h1>Edit Wiki</h1>
@@ -8,7 +9,7 @@
       <li>Just write what you need to say</li>
     </ul>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-8"> 
     <%= form_for @wiki do |f| %>
     <div class="form-group">
       <br>
@@ -17,20 +18,18 @@
     </div>
     <div class="form-group">
       <%= f.label :body %>
-      <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: 'Enter body' %>
+      <%= f.text_field :body, rows: 20, class: 'form-control', placeholder: "enter wiki body" %>
      <br>
-      <%= f.submit "Save", class: 'btn btn-success' %>
-
-      <%= f.label :private, class: 'checkbox' do %>
-      <%= f.check_box :private %> Private wiki
-      <% end %> 
+        <%= f.label :private, class: 'checkbox' do %>
+       <%= f.check_box :private %> Private wiki
+       <% end %>  
+      <%= f.submit "Save", class: 'btn btn-success' %>   
     </div>
-      <% if current_user.role != 'member' %>
-       <%= link_to 'Update Collaborators', update_collaborators_path(@wiki), class: 'btn btn-warning' %>
-       <% end %> 
+     <% if policy(@wiki).admin? || policy(@wiki).premium_member? %>
+      <%= link_to 'Update Collaborators', update_collaborators_path(@wiki), class: 'btn btn-warning' %>     
+      <% end %>    
     </div>
-  <% end %>
+   <% end %>
   </div>
 </div>
-
 

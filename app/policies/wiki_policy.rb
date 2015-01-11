@@ -5,9 +5,12 @@
     edit?
   end
 
+ def admin?
+    user.role == 'admin'
+ end
 
   def premium_member?
-    user.role == 'admin' || (user.role == 'premium_member' && record.user == user) 
+    user.role == 'premium_member' && record.user == user
   end
 
 
