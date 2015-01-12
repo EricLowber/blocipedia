@@ -9,4 +9,4 @@ With wikimaster, you can:
   - create private wikis.
   - add or remove collaborators. 
 
-[Go to wikimaster](https://wikimaster.herokuapp.com/>Go to Wikimaster)
+[Go to wikimaster](https://wikimaster.herokuapp.com/)
