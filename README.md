@@ -1,3 +1,10 @@
 == README
 
-blocipedia. A simple sociail wiki application. 
+wikimaster. A simple social wiki application. 
+
+With wikimaster, you can:
+- sign up for a free membership.
+- contribute to, edit, create, and delete wikis.
+- sign up for a premium membership (only $5) that allows you to:
+  - create private wikis.
+  - add or remove collaborators. 
