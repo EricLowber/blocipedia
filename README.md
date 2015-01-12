@@ -9,6 +9,4 @@ With wikimaster, you can:
   - create private wikis.
   - add or remove collaborators. 
 
-<html>
- <a href= "https://wikimaster.herokuapp.com/>Go to Wikimaster"</a>
-</html>
+[Go to wikimaster](https://wikimaster.herokuapp.com/>Go to Wikimaster)
